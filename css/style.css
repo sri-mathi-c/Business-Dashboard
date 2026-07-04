@@ -1,0 +1,35 @@
+body {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+}
+
+.title {
+  text-align: center;
+  color: #4F46E5;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: gray;
+}
+
+#errorMsg {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}

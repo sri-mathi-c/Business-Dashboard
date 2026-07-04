@@ -1,0 +1,15 @@
+{
+  "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+  "revenue": [8, 12, 10, 15, 18, 22, 25],
+
+  "orders": [
+    { "id": "#101", "customer": "Arun", "amount": 1200, "status": "Done" },
+    { "id": "#102", "customer": "Priya", "amount": 900, "status": "Pending" },
+    { "id": "#103", "customer": "Kiran", "amount": 1500, "status": "Shipped" }
+  ],
+
+  "category": {
+    "labels": ["Electronics", "Fashion", "Home", "Sports"],
+    "values": [40, 25, 20, 15]
+  }
+}
