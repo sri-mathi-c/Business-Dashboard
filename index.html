@@ -29,15 +29,40 @@
         </div>
 
         <div class="mb-3">
-          <label>Password</label>
-          <input type="password" id="password" class="form-control" placeholder="Enter password" required>
-        </div>
+    <label>Password</label>
+
+    <div style="position: relative;">
+
+        <input type="password"
+               id="password"
+               class="form-control"
+               placeholder="Enter password"
+               style="padding-right:45px;"
+               required>
+
+        <span onclick="togglePassword()"
+              style="position:absolute;
+                     right:15px;
+                     top:50%;
+                     transform:translateY(-50%);
+                     cursor:pointer;">
+            👁
+        </span>
+
+    </div>
+</div>
 
         <button type="submit" class="btn btn-primary w-100">Login</button>
 
-        <p id="errorMsg"></p>
+<p class="text-center mt-3">
+    <a href="#" onclick="alert('Password reset feature coming soon')">
+        Forgot Password?
+    </a>
+</p>
 
-      </form>
+<p id="errorMsg"></p>
+
+</form>
 
     </div>
 
