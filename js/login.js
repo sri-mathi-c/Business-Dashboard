@@ -1,12 +1,10 @@
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+function login() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    if (email === "admin@demo.com" && password === "1234") {
+    if (email === "admin@insightiq.com" && password === "InsightIQ@2026") {
         window.location.href = "dashboard.html";
     } else {
-        document.getElementById("errorMsg").innerText = "Invalid login";
+        alert("Invalid email or password");
     }
-});
+}

@@ -50,15 +50,28 @@ fetch("./data/dashboard.json")
     const table = document.getElementById("ordersTable");
 
     data.orders.forEach(order => {
-        table.innerHTML += `
-            <tr>
-                <td>${order.id}</td>
-                <td>${order.customer}</td>
-                <td>₹${order.amount}</td>
-                <td>${order.status}</td>
-            </tr>
-        `;
-    });
+
+    let badge = "";
+
+    if (order.status === "Done") {
+        badge = `<span class="badge bg-success">Done</span>`;
+    }
+    else if (order.status === "Pending") {
+        badge = `<span class="badge bg-warning text-dark">Pending</span>`;
+    }
+    else {
+        badge = `<span class="badge bg-primary">Shipped</span>`;
+    }
+
+    table.innerHTML += `
+        <tr>
+            <td>${order.id}</td>
+            <td>${order.customer}</td>
+            <td>₹${order.amount}</td>
+            <td>${badge}</td>
+        </tr>
+    `;
+});
 
 });
 
@@ -99,3 +112,64 @@ function updateDashboard(month) {
     }
 
 }
+const searchInput = document.getElementById("searchOrder");
+
+if (searchInput) {
+
+    searchInput.addEventListener("keyup", function () {
+
+        let value = this.value.toLowerCase();
+
+        let rows = document.querySelectorAll("#ordersTable tr");
+
+        rows.forEach(row => {
+
+            let text = row.innerText.toLowerCase();
+
+            if (text.includes(value)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+
+        });
+
+    });
+
+}
+
+document.getElementById("exportCSV").addEventListener("click", function () {
+
+    let rows = document.querySelectorAll("#ordersTable tr");
+
+    let csv = "Order ID,Customer,Amount,Status\n";
+
+    rows.forEach(row => {
+
+        let cols = row.querySelectorAll("td");
+
+        if (cols.length > 0) {
+
+            csv +=
+                cols[0].innerText + "," +
+                cols[1].innerText + "," +
+                cols[2].innerText + "," +
+                cols[3].innerText + "\n";
+
+        }
+
+    });
+
+    let blob = new Blob([csv], { type: "text/csv" });
+
+    let url = URL.createObjectURL(blob);
+
+    let a = document.createElement("a");
+
+    a.href = url;
+
+    a.download = "orders.csv";
+
+    a.click();
+
+});

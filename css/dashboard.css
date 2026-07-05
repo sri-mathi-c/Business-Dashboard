@@ -127,3 +127,17 @@ main p{
     background: #1e1e1e;
     color: white;
 }
+
+/* ===========================
+   Professional Table
+=========================== */
+
+.table tbody tr:hover{
+    background-color:#eef5ff;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.table tbody tr:nth-child(even){
+    background:#fafafa;
+}
